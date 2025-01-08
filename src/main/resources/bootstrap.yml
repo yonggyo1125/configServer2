@@ -1,0 +1,19 @@
+server:
+  port: 3100
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    active: native,git
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+        git: # 원격 레포지토리에 설정파일 조회
+          uri: https://github.com/yonggyo1125/projectConfigs.git
+          searchPaths: configs
+          default-label: master 
